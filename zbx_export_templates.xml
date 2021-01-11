@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>2.0</version>
-    <date>2014-07-01T09:43:44Z</date>
+    <version>3.4</version>
+    <date>2021-01-11T10:58:54Z</date>
     <groups>
         <group>
-            <name>UPS</name>
+            <name>Templates</name>
         </group>
     </groups>
     <templates>
         <template>
             <template>UPS</template>
             <name>UPS</name>
+            <description/>
             <groups>
                 <group>
-                    <name>UPS</name>
+                    <name>Templates</name>
                 </group>
             </groups>
             <applications>
@@ -39,7 +40,6 @@
                     <snmpv3_authpassphrase/>
                     <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
-                    <delay_flex/>
                     <params/>
                     <ipmi_sensor/>
                     <authtype>0</authtype>
@@ -48,67 +48,27 @@
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <filter>:</filter>
-                    <lifetime>30</lifetime>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>30d</lifetime>
                     <description/>
                     <item_prototypes>
-                        <item_prototype>
-                            <name>UPS {#UPSNAME} Battery Voltage</name>
-                            <type>0</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>upsmon[{#UPSNAME},battery.voltage]</key>
-                            <delay>10</delay>
-                            <history>90</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>0</value_type>
-                            <allowed_hosts/>
-                            <units>Volts</units>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>UPS</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
                         <item_prototype>
                             <name>UPS {#UPSNAME} Charge</name>
                             <type>0</type>
                             <snmp_community/>
-                            <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>upsmon[{#UPSNAME},battery.charge]</key>
                             <delay>10</delay>
-                            <history>90</history>
-                            <trends>365</trends>
+                            <history>90d</history>
+                            <trends>365d</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units>%</units>
-                            <delta>0</delta>
                             <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -116,11 +76,8 @@
                             <snmpv3_authpassphrase/>
                             <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
-                            <data_type>0</data_type>
                             <authtype>0</authtype>
                             <username/>
                             <password/>
@@ -135,22 +92,67 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>UPS {#UPSNAME} Battery Voltage</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>upsmon[{#UPSNAME},battery.voltage]</key>
+                            <delay>10</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>1</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>Volts</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>UPS</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
                         </item_prototype>
                         <item_prototype>
                             <name>UPS {#UPSNAME} Input Frequency</name>
                             <type>0</type>
                             <snmp_community/>
-                            <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>upsmon[{#UPSNAME},input.frequency]</key>
                             <delay>30</delay>
-                            <history>90</history>
-                            <trends>365</trends>
+                            <history>90d</history>
+                            <trends>365d</trends>
                             <status>0</status>
                             <value_type>0</value_type>
                             <allowed_hosts/>
                             <units>Hz</units>
-                            <delta>0</delta>
                             <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -158,11 +160,8 @@
                             <snmpv3_authpassphrase/>
                             <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
-                            <data_type>0</data_type>
                             <authtype>0</authtype>
                             <username/>
                             <password/>
@@ -177,22 +176,25 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
                         </item_prototype>
                         <item_prototype>
                             <name>UPS {#UPSNAME} Input Voltage</name>
                             <type>0</type>
                             <snmp_community/>
-                            <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>upsmon[{#UPSNAME},input.voltage]</key>
                             <delay>30</delay>
-                            <history>90</history>
-                            <trends>365</trends>
+                            <history>90d</history>
+                            <trends>365d</trends>
                             <status>0</status>
                             <value_type>0</value_type>
                             <allowed_hosts/>
                             <units>Volts</units>
-                            <delta>0</delta>
                             <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -200,11 +202,8 @@
                             <snmpv3_authpassphrase/>
                             <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
-                            <data_type>0</data_type>
                             <authtype>0</authtype>
                             <username/>
                             <password/>
@@ -219,64 +218,25 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>UPS {#UPSNAME} Load</name>
-                            <type>0</type>
-                            <snmp_community/>
-                            <multiplier>0</multiplier>
-                            <snmp_oid/>
-                            <key>upsmon[{#UPSNAME},ups.load]</key>
-                            <delay>10</delay>
-                            <history>90</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>0</value_type>
-                            <allowed_hosts/>
-                            <units>%</units>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>UPS</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
                         </item_prototype>
                         <item_prototype>
                             <name>UPS {#UPSNAME} Output Voltage</name>
                             <type>0</type>
                             <snmp_community/>
-                            <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>upsmon[{#UPSNAME},output.voltage]</key>
                             <delay>30</delay>
-                            <history>90</history>
-                            <trends>365</trends>
+                            <history>90d</history>
+                            <trends>365d</trends>
                             <status>0</status>
                             <value_type>0</value_type>
                             <allowed_hosts/>
                             <units>Volts</units>
-                            <delta>0</delta>
                             <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -284,11 +244,8 @@
                             <snmpv3_authpassphrase/>
                             <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
-                            <data_type>0</data_type>
                             <authtype>0</authtype>
                             <username/>
                             <password/>
@@ -303,22 +260,25 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
                         </item_prototype>
                         <item_prototype>
-                            <name>UPS {#UPSNAME} Status</name>
+                            <name>UPS {#UPSNAME} Load</name>
                             <type>0</type>
                             <snmp_community/>
-                            <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>upsmon[{#UPSNAME},ups.status]</key>
+                            <key>upsmon[{#UPSNAME},ups.load]</key>
                             <delay>10</delay>
-                            <history>90</history>
-                            <trends>365</trends>
+                            <history>90d</history>
+                            <trends>365d</trends>
                             <status>0</status>
-                            <value_type>3</value_type>
+                            <value_type>0</value_type>
                             <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
+                            <units>%</units>
                             <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -326,11 +286,50 @@
                             <snmpv3_authpassphrase/>
                             <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
-                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>UPS</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>UPS {#UPSNAME} Status</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>upsmon[{#UPSNAME},ups.status]</key>
+                            <delay>10</delay>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
                             <authtype>0</authtype>
                             <username/>
                             <password/>
@@ -347,22 +346,25 @@
                             <valuemap>
                                 <name>UPS Battery Status</name>
                             </valuemap>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
                         </item_prototype>
                         <item_prototype>
                             <name>UPS {#UPSNAME} Temperature</name>
                             <type>0</type>
                             <snmp_community/>
-                            <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>upsmon[{#UPSNAME},ups.temperature]</key>
                             <delay>10</delay>
-                            <history>90</history>
-                            <trends>365</trends>
-                            <status>0</status>
+                            <history>90d</history>
+                            <trends>365d</trends>
+                            <status>1</status>
                             <value_type>0</value_type>
                             <allowed_hosts/>
                             <units>°C</units>
-                            <delta>0</delta>
                             <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -370,11 +372,8 @@
                             <snmpv3_authpassphrase/>
                             <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
-                            <data_type>0</data_type>
                             <authtype>0</authtype>
                             <username/>
                             <password/>
@@ -389,125 +388,221 @@
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{UPS:upsmon[{#UPSNAME},battery.charge].last(0)}&lt;40</expression>
+                            <expression>{Template UPS:upsmon[{#UPSNAME},battery.charge].last(0)}&lt;40</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>UPS {#UPSNAME} Charge &lt; 40%</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{UPS:upsmon[{#UPSNAME},battery.charge].last(0)}&lt;90</expression>
+                            <expression>{Template UPS:upsmon[{#UPSNAME},battery.charge].last(0)}&lt;90</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>UPS {#UPSNAME} Charge &lt; 90%</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{UPS:upsmon[{#UPSNAME},ups.status].last(0)}=5</expression>
+                            <expression>{Template UPS:upsmon[{#UPSNAME},ups.status].last(0)}=5</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>UPS {#UPSNAME} Status - Battery is charging</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
                             <description>The battery is charging</description>
                             <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{UPS:upsmon[{#UPSNAME},ups.status].last(0)}=11</expression>
+                            <expression>{Template UPS:upsmon[{#UPSNAME},ups.status].last(0)}=11</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>UPS {#UPSNAME} Status - Boosting incoming voltage</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description>UPS is boosting incoming voltage</description>
                             <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{UPS:upsmon[{#UPSNAME},ups.status].last(0)}=7</expression>
+                            <expression>{Template UPS:upsmon[{#UPSNAME},ups.status].last(0)}=7</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>UPS {#UPSNAME} Status - Bypass</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
                             <description>UPS bypass circuit is active echo no battery protection is available</description>
                             <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{UPS:upsmon[{#UPSNAME},ups.status].last(0)}=8</expression>
+                            <expression>{Template UPS:upsmon[{#UPSNAME},ups.status].last(0)}=8</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>UPS {#UPSNAME} Status - Calibration</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
                             <description>UPS is currently performing runtime calibration (on battery)</description>
                             <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{UPS:upsmon[{#UPSNAME},ups.status].last(0)}=3</expression>
+                            <expression>{Template UPS:upsmon[{#UPSNAME},ups.status].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>UPS {#UPSNAME} Status - Low battery</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
                             <description>Low battery</description>
                             <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{UPS:upsmon[{#UPSNAME},ups.status].last(0)}=9</expression>
+                            <expression>{Template UPS:upsmon[{#UPSNAME},ups.status].last(0)}=9</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>UPS {#UPSNAME} Status - Offline</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
                             <description>UPS is offline and is not supplying power to the load</description>
                             <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{UPS:upsmon[{#UPSNAME},ups.status].last(0)}=2</expression>
+                            <expression>{Template UPS:upsmon[{#UPSNAME},ups.status].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>UPS {#UPSNAME} Status - On battery</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description>On battery (mains is not present)</description>
                             <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{UPS:upsmon[{#UPSNAME},ups.status].last(0)}=10</expression>
+                            <expression>{Template UPS:upsmon[{#UPSNAME},ups.status].last(0)}=10</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>UPS {#UPSNAME} Status - Overloaded</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
                             <description>UPS is overloaded</description>
                             <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{UPS:upsmon[{#UPSNAME},ups.status].last(0)}=11</expression>
+                            <expression>{Template UPS:upsmon[{#UPSNAME},ups.status].last(0)}=11</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>UPS {#UPSNAME} Status - Trimming incoming voltage</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description>UPS is trimming incoming voltage (called &quot;buck&quot; in some hardware)</description>
                             <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{UPS:upsmon[{#UPSNAME},ups.status].last(0)}=0</expression>
+                            <expression>{Template UPS:upsmon[{#UPSNAME},ups.status].last(0)}=0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>UPS {#UPSNAME} Status - Unknown state</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
                             <description>Unknown state</description>
                             <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{UPS:upsmon[{#UPSNAME},ups.temperature].last(0)}&gt;28</expression>
+                            <expression>{Template UPS:upsmon[{#UPSNAME},ups.temperature].last(0)}&gt;28</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>UPS {#UPSNAME} Temperature</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description/>
                             <type>1</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes>
@@ -537,7 +632,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>UPS</host>
+                                        <host>Template UPS</host>
                                         <key>upsmon[{#UPSNAME},battery.charge]</key>
                                     </item>
                                 </graph_item>
@@ -569,7 +664,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>UPS</host>
+                                        <host>Template UPS</host>
                                         <key>upsmon[{#UPSNAME},input.frequency]</key>
                                     </item>
                                 </graph_item>
@@ -601,7 +696,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>UPS</host>
+                                        <host>Template UPS</host>
                                         <key>upsmon[{#UPSNAME},ups.load]</key>
                                     </item>
                                 </graph_item>
@@ -633,7 +728,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>UPS</host>
+                                        <host>Template UPS</host>
                                         <key>upsmon[{#UPSNAME},ups.temperature]</key>
                                     </item>
                                 </graph_item>
@@ -665,7 +760,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>UPS</host>
+                                        <host>Template UPS</host>
                                         <key>upsmon[{#UPSNAME},input.voltage]</key>
                                     </item>
                                 </graph_item>
@@ -677,7 +772,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>UPS</host>
+                                        <host>Template UPS</host>
                                         <key>upsmon[{#UPSNAME},output.voltage]</key>
                                     </item>
                                 </graph_item>
@@ -685,11 +780,72 @@
                         </graph_prototype>
                     </graph_prototypes>
                     <host_prototypes/>
+                    <jmx_endpoint/>
                 </discovery_rule>
             </discovery_rules>
+            <httptests/>
             <macros/>
             <templates/>
             <screens/>
         </template>
     </templates>
+    <value_maps>
+        <value_map>
+            <name>UPS Battery Status</name>
+            <mappings>
+                <mapping>
+                    <value>0</value>
+                    <newvalue>unknown state</newvalue>
+                </mapping>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>On line (mains is present)</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>On battery (mains is not present)</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>Low battery</newvalue>
+                </mapping>
+                <mapping>
+                    <value>4</value>
+                    <newvalue>The battery needs to be replaced</newvalue>
+                </mapping>
+                <mapping>
+                    <value>5</value>
+                    <newvalue>The battery is charging</newvalue>
+                </mapping>
+                <mapping>
+                    <value>6</value>
+                    <newvalue>The battery is discharging (inverter is providing load power)</newvalue>
+                </mapping>
+                <mapping>
+                    <value>7</value>
+                    <newvalue>UPS bypass circuit is active echo no battery protection is avail</newvalue>
+                </mapping>
+                <mapping>
+                    <value>8</value>
+                    <newvalue>UPS is currently performing runtime calibration (on battery)</newvalue>
+                </mapping>
+                <mapping>
+                    <value>9</value>
+                    <newvalue>UPS is offline and is not supplying power to the load</newvalue>
+                </mapping>
+                <mapping>
+                    <value>10</value>
+                    <newvalue>UPS is overloaded</newvalue>
+                </mapping>
+                <mapping>
+                    <value>11</value>
+                    <newvalue>UPS is trimming incoming voltage (called &quot;buck&quot; in some hardware</newvalue>
+                </mapping>
+                <mapping>
+                    <value>12</value>
+                    <newvalue>UPS is boosting incoming voltage</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+    </value_maps>
 </zabbix_export>
